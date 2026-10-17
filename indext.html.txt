@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوت‌نامه کتابخانه</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f2f1, #e8eaf6);
+            margin: 0;
+            padding: 25px 15px;
+            color: #263238;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        header {
+            text-align: center;
+            background: #00695c;
+            color: white;
+            padding: 25px 15px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            margin: 0 0 12px;
+            font-size: 25px;
+        }
+
+        header p {
+            line-height: 2;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .book-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .question {
+            margin-bottom: 22px;
+        }
+
+        label, .question-title {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cfd8dc;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 14px;
+            background: #fafafa;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #00897b;
+            background: white;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+        }
+
+        .options label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        input[type="radio"] {
+            accent-color: #00897b;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #00796b;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #004d40;
+        }
+
+        #message {
+            display: none;
+            text-align: center;
+            color: #00695c;
+            background: #e0f2f1;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 18px;
+            line-height: 2;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 22px;
+            color: #78909c;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 18px;
+            }
+
+            header h1 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="book-icon">📚</div>
+        <h1>دعوت‌نامه کتابخانه</h1>
+        <p>
+            دوست عزیز، به کتابخانه ما خوش آمدید!
+            <br>
+            لطفاً به چند سؤال کوتاه درباره علاقه‌مندی‌های خود پاسخ دهید.
+        </p>
+    </header>
+
+    <form id="libraryForm">
+
+        <div class="question">
+            <label for="fullname">۱. نام و نام خانوادگی شما چیست؟</label>
+            <input type="text" id="fullname" name="fullname"
+                   placeholder="نام و نام خانوادگی خود را وارد کنید"
+                   required>
+        </div>
+
+        <div class="question">
+            <span class="question-title">
+                ۲. آیا به مطالعه کردن علاقه دارید؟
+            </span>
+            <div class="options">
+                <label><input type="radio" name="interest"
+                              value="بله" required> بله</label>
+                <label><input type="radio" name="interest"
+                              value="خیر"> خیر</label>
+                <label><input type="radio" name="interest"
+                              value="تا حدودی"> تا حدودی</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="readingTime">
+                ۳. چه‌قدر در روز مطالعه می‌کنید؟
+            </label>
+            <select id="readingTime" name="readingTime" required>
+                <option value="">یک گزینه انتخاب کنید</option>
+                <option>کمتر از ۳۰ دقیقه</option>
+                <option>۳۰ دقیقه تا ۱ ساعت</option>
+                <option>۱ تا ۲ ساعت</option>
+                <option>بیشتر از ۲ ساعت</option>
+                <option>مطالعه نمی‌کنم</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="language">
+                ۴. کتاب‌ها را بیشتر به چه زبانی می‌خوانید؟
+            </label>
+            <select id="language" name="language" required>
+                <option value="">زبان مورد علاقه را انتخاب کنید</option>
+                <option>فارسی</option>
+                <option>دری</option>
+                <option>پشتو</option>
+                <option>عربی</option>
+                <option>انگلیسی</option>
+                <option>آلمانی</option>
+                <option>زبان دیگر</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <span class="question-title">
+                ۵. آیا تا به حال داستان یا کتابی نوشته‌اید؟
+            </span>
+            <div class="options">
+                <label><input type="radio" name="writing"
+                              value="بله" required> بله</label>
+                <label><input type="radio" name="writing"
+                              value="خیر"> خیر</label>
+                <label><input type="radio" name="writing"
+                              value="در حال نوشتن هستم"> در حال نوشتن هستم</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-title">
+                ۶. آیا در کتابخانه عضو هستید؟
+            </span>
+            <div class="options">
+                <label><input type="radio" name="member"
+                              value="بله" required> بله</label>
+                <label><input type="radio" name="member"
+                              value="خیر"> خیر</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="bookType">
+                ۷. بیشتر به چه نوع کتابی علاقه دارید؟
+            </label>
+            <select id="bookType" name="bookType" required>
+                <option value="">نوع کتاب را انتخاب کنید</option>
+                <option>رمان و داستان</option>
+                <option>علمی و آموزشی</option>
+                <option>تاریخی</option>
+                <option>شعر و ادبیات</option>
+                <option>دینی و مذهبی</option>
+                <option>روان‌شناسی</option>
+                <option>فلسفه</option>
+                <option>کتاب‌های کودک و نوجوان</option>
+                <option>زندگی‌نامه افراد مشهور</option>
+                <option>سایر موضوعات</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="visitTime">
+                ۸. چه ساعتی برای مراجعه به کتابخانه بهتر است؟
+            </label>
+            <select id="visitTime" name="visitTime" required>
+                <option value="">زمان مناسب را انتخاب کنید</option>
+                <option>صبح (۸ تا ۱۲)</option>
+                <option>ظهر (۱۲ تا ۱۵)</option>
+                <option>بعدازظهر (۱۵ تا ۱۸)</option>
+                <option>عصر (۱۸ تا ۲۰)</option>
+            </select>
+        </div>
+
+        <button type="submit">ثبت پاسخ‌ها</button>
+
+        <div id="message" role="status">
+            🌷 سپاس از شما!
+            <br>
+            پاسخ‌های شما با موفقیت در این صفحه ثبت شد.
+        </div>
+
+    </form>
+
+    <footer>
+        کتاب، پنجره‌ای به سوی دانایی است 💚
+    </footer>
+
+</div>
+
+<script>
+    const form = document.getElementById("libraryForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        if (form.checkValidity()) {
+            message.style.display = "block";
+            message.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
